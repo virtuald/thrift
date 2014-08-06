@@ -1218,7 +1218,7 @@ void t_py_generator::generate_service_client(t_service* tservice) {
         indent() << "                         else iprot_factory)" << endl <<
         indent() << "  self._seqid = 0" << endl <<
         indent() << "  self._reqs = {}" << endl <<
-        indent() << "  self._start_receiving()" << endl <<
+        indent() << "  self._transport.io_loop.spawn_callback(self._start_receiving)" << endl <<
         endl;
     } else {
       f_service_ <<
